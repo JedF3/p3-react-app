@@ -1,0 +1,494 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgb(224, 224, 224);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --richGreen:#76B566;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5em;
+  /* line-height: 1.1; */
+}
+
+.TitleHead{
+  display:flex;
+  flex-flow: row nowrap;
+  position:fixed;
+  top:0px;
+  background-color: var(--richGreen);
+  width: 100%;
+  color:white;
+  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.4);
+  padding-left: 1%;
+  height:6vh;
+  z-index: 200;
+}
+
+.whiteMaterial{
+  background-color: white;
+}
+.MaterialShadow{
+  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.roundCorner{
+  border-radius: 5px;
+}
+
+.container{
+  width: 100vw;
+}
+.contents{
+  color: black;
+  margin-top: 8em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  gap:2.5em;
+}
+.reducedTop{
+  margin-top: 2em;
+}
+.ExpenseAnalysis{
+  width:60em;
+  height:auto;
+  padding:1%;
+}
+
+.lineGraph{
+  width:100%;
+  height:20em;
+}
+
+.ExpenseSummary{
+  width:70em;
+  height: auto;
+  /* margin-bottom: 1%; */
+}
+.preventBottom{
+  margin-bottom: 5%;
+}
+
+.Sidepanel{
+  display: flex;
+  flex-flow: column nowrap;
+  position:fixed;
+  top:0px;
+  z-index: 101;
+  background-color: white;
+  height:100vh;
+  width:25em;
+  gap:1em;
+  padding-left: 1%;
+  padding-top:10vh;
+}
+
+.sidePanelButtons{
+  display: flex;
+  flex-flow: column nowrap;
+  width:100%;
+  gap: 1%;
+}
+
+.sidePanelButtons a{
+  text-decoration: none;
+  color:black;
+  font-size: 2em;
+  border-radius: 10px;
+  height:2em;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+}
+
+.sidePanelButtons a.active{
+  font-weight: bold;
+  color:white;
+  background-color: var(--richGreen);
+
+}
+
+
+
+.panelAnimationIn{
+  animation-name:panelIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  visibility: visible;
+}
+.panelAnimationOut{
+  animation-name:panelOut;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes panelIn {
+  from{
+    right:-25vw;
+  }
+  to{
+    right:-1em;
+  }
+}
+
+@keyframes panelOut {
+  from{
+    right:-1em;
+  }
+  to{
+    right:-25vw;
+  }
+  100%{
+    visibility: hidden;
+  }
+}
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  align-self: center;
+  justify-self: flex-end;
+  margin-left:auto !important;
+  margin-right: 5em;
+  z-index: 999;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.shade{
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.4);
+  width:100vw;
+  height:100vh;
+}
+
+.hide{
+  visibility: hidden;
+}
+.show{
+  visibility: visible;
+}
+header a{
+  text-decoration: none;
+  color:white;
+}
+header a:visited{
+  color:white;
+}
+
+.initializeButtons{
+  background-color: transparent;
+  border: none;
+  font-size: 1vw;
+  padding:0px;
+  width:100%;
+  margin:0;
+}
+
+.initializeButtons:hover{
+  cursor:pointer;
+}
+
+.addExpenseButton{
+  background-color: var(--richGreen);
+  border:none;
+  width:5em;
+  height:3em;
+  align-self: flex-start;
+  color:white;
+  font-size: 1.5em;
+  margin-top: 2em;
+}
+
+.dateDropdown{
+  background-color: white;
+  border: 2px solid var(--richGreen);
+  border-radius: 5px;
+  width:10em;
+  height:2.5em;
+  margin-right: 2%;
+  font-size:1.75em;
+}
+.addInputField{
+  width:100%;
+  font-size:1.5em;
+  padding:1%;
+  background-color: #e0e0e0;
+  border-radius: 4px 4px 0 0;
+  border:none;
+  border-bottom: 3px solid gray;
+}
+
+.addInputField:focus{
+  outline: 3px solid var(--richGreen);
+  border: none;
+  border-radius: 2px;
+}
+
+::placeholder{
+  opacity: 0.5;
+  color:#333;
+}
+
+.addInputField:not(:placeholder-shown){
+  background-color: white;
+}
+
+.addItem{
+  position: fixed;
+  width:60em;
+  height:auto;
+  margin-top: 2em;
+  margin-left: auto;
+  padding:4%;
+  z-index: 100;
+  gap:0.5em;
+}
+.updItem{
+  position: fixed;
+  width:60em;
+  height:auto;
+  top:20vh;
+  padding:4%;
+  z-index: 100;
+  gap:0.5em;
+}
+
+.addExpenseForm{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  width:100%;
+  height:auto;
+  gap:0.5em;
+}
+.monthlyViewAnalysis{
+  height:20em;
+}
+@media only screen and (max-width: 1682px){
+  @keyframes panelIn {
+    from{
+      right:-30vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-30vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 1376px){
+  @keyframes panelIn {
+    from{
+      right:-35vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-35vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  @keyframes panelIn {
+    from{
+      right:-40vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-40vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+  .ExpenseSummary{
+    width:90%;
+  }
+  .ExpenseAnalysis{
+    width:90%;
+  }
+  .addItem{
+    width:90%;
+  }
+  .updItem{
+    width:90%;
+  }
+
+}
+@media only screen and (max-width: 1000px){
+  @keyframes panelIn {
+    from{
+      right:-48vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-48vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 840px){
+  @keyframes panelIn {
+    from{
+      right:-65vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-65vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px){
+  @keyframes panelIn {
+    from{
+      right:-90vw;
+    }
+    to{
+      right:0em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:0em;
+    }
+    to{
+      right:-90vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 450px){
+  .titleText{
+    font-size: 2em;
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 405px){
+  @keyframes panelIn {
+    from{
+      right:-130vw;
+    }
+    to{
+      right:-7em;
+    }
+  }
+  
+  @keyframes panelOut {
+    from{
+      right:-7em;
+    }
+    to{
+      right:-130vw;
+    }
+    100%{
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (max-height: 1200px){
+  .titleText{
+    font-size: 2em;
+    align-self: center;
+  }
+}
